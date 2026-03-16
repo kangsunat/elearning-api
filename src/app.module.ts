@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CourseModule } from './course/course.module';
+import { CacheModule } from '@nestjs/cache-manager';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CourseModule } from './course/course.module';
         uri: configService.get<string>('MONGODB_URI'),
       }),
     }),
+    CacheModule.register({ isGlobal: true, ttl: 60000, max: 100 }),
     CourseModule,
   ],
   controllers: [AppController],
