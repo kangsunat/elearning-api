@@ -46,7 +46,7 @@ Project ini menggunakan pola **Domain-Driven Design (DDD)** sederhana untuk mema
 1. **Clone Repository**
 
 ```bash
-git clone [https://github.com/ahmadnasirin/eduflow-api.git](https://github.com/ahmadnasirin/eduflow-api.git)
+git clone https://github.com/kangsunat/elearning-api.git
 
 cd elarning-api
 ```
@@ -61,7 +61,8 @@ npm install
    Buat file `.env` dan sesuaikan koneksi database Anda:
 
 ```env
-DATABASE_URL="mongodb+srv://<user>:<password>@cluster.mongodb.net/eduflow?retryWrites=true&w=majority"
+DATABASE_URL="mongodb+srv://<user>:<password>@cluster.mongodb.net/elearning-api?retryWrites=true&w=majority"
+
 PORT=3000
 
 ```
@@ -70,7 +71,6 @@ PORT=3000
 
 ```bash
 npx prisma generate
-
 ```
 
 5. **Jalankan Aplikasi**
