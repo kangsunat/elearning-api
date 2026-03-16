@@ -1,98 +1,104 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📚 EduFlow API – Modern E-Learning Management System
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+**EduFlow** adalah RESTful API berperforma tinggi yang dirancang untuk mengelola ekosistem pembelajaran digital. Project ini mendemonstrasikan transisi dari pola pikir Relational (SQL) ke **Document-Based Modeling** menggunakan MongoDB untuk menangani konten yang dinamis.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 Fitur Utama
 
-## Project setup
+- **Flexible Course Schema**: Implementasi _Embedded Documents_ untuk modul kursus (Video, Artikel, Kuis) untuk meminimalkan JOIN.
+- **Hybrid Relationship**: Menggabungkan teknik _Referencing_ untuk data User dan _Embedding_ untuk konten kursus.
+- **Type-Safe Database Ops**: Full integrasi Prisma ORM dengan TypeScript.
+- **Professional Validation**: Validasi input menggunakan `class-validator` dan `mapped-types`.
+- **Auto-Generated Documentation**: Swagger UI terintegrasi untuk eksplorasi API.
 
-```bash
-$ npm install
-```
+---
 
-## Compile and run the project
+## 🏗️ Desain Arsitektur & Database
 
-```bash
-# development
-$ npm run start
+Project ini menggunakan pola **Domain-Driven Design (DDD)** sederhana untuk memastikan kode tetap _scalable_.
 
-# watch mode
-$ npm run start:dev
+### Perbandingan Data Model
 
-# production mode
-$ npm run start:prod
-```
+| Fitur     | Pendekatan SQL (Lama)        | Pendekatan MongoDB (Project Ini)   |
+| :-------- | :--------------------------- | :--------------------------------- |
+| **Modul** | Tabel Terpisah (Foreign Key) | **Embedded Array** di dalam Course |
+| **Query** | Heavy JOIN                   | Single Document Read (Lebih Cepat) |
+| **Skema** | Rigid / Kaku                 | Flexible / Dynamic                 |
 
-## Run tests
+---
 
-```bash
-# unit tests
-$ npm run test
+## 🛠️ Instalasi & Persiapan
 
-# e2e tests
-$ npm run test:e2e
+### Prasyarat
 
-# test coverage
-$ npm run test:cov
-```
+- Node.js v18 atau lebih baru
+- Instance MongoDB (Lokal atau Atlas)
+- Pemahaman dasar TypeScript
 
-## Deployment
+### Langkah-langkah
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+1. **Clone Repository**
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+git clone [https://github.com/ahmadnasirin/eduflow-api.git](https://github.com/ahmadnasirin/eduflow-api.git)
+
+cd elarning-api
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+2. **Instal Dependensi**
 
-## Resources
+```bash
+npm install
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+3. **Konfigurasi Environment**
+   Buat file `.env` dan sesuaikan koneksi database Anda:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```env
+DATABASE_URL="mongodb+srv://<user>:<password>@cluster.mongodb.net/eduflow?retryWrites=true&w=majority"
+PORT=3000
 
-## Support
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+4. **Sinkronisasi Database**
 
-## Stay in touch
+```bash
+npx prisma generate
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```
 
-## License
+5. **Jalankan Aplikasi**
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```bash
+# mode development
+npm run start:dev
+
+```
+
+## 📂 Struktur Folder
+
+```text
+src/
+├── common/         # Filter, Interceptor, & Guard Global
+├── prisma/         # Prisma Service & Koneksi Database
+├── users/          # Modul User & Autentikasi
+├── courses/        # Modul Kursus & Logic Sub-dokumen
+├── main.ts         # Entry Point Aplikasi
+└── app.module.ts   # Root Module
+
+```
+
+---
+
+## 👨‍💻 Author
+
+**Ahmad Nasirin**
+_Fullstack Developer_
+
+---
